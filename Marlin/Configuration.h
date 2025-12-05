@@ -77,8 +77,8 @@
     #define NO_AUTO_ASSIGN_WARNING  // suppress warning for auto-assigning LCD serial port
     
     #if NONE(NEPTUNE_3_PRO, NEPTUNE_3_PLUS, NEPTUNE_3_MAX)
-      //#define NEPTUNE_3_PRO      1
-      #define NEPTUNE_3_PLUS   1
+      #define NEPTUNE_3_PRO      1
+      //#define NEPTUNE_3_PLUS   1
       //#define NEPTUNE_3_MAX    1
     #endif
   #endif
@@ -830,7 +830,10 @@
  *
  * With this option disabled, bang-bang will be used. BED_LIMIT_SWITCHING enables hysteresis.
  */
-#define PIDTEMPBED
+/* The psu used in the neptune 3 pro can not handle correctly PIDTEMPBED
+It causes voltage drops, visible with the brightness of the LED bar.
+*/
+//#define PIDTEMPBED
 
 #if ENABLED(PIDTEMPBED)
   //#define MIN_BED_POWER 0   // Min power to improve PID stability (0..MAX_BED_POWER).
